@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 
 const Home = () => {
@@ -6,16 +7,18 @@ const Home = () => {
         <div className="mainDiv">
             <h2>Welcome</h2>
             <div id="add-item-div">
-                <h3>Add New Item</h3>
+
                 <Link to="/add/item">
-                    <button >+</button>
+                    <button className="homeButton"><h3>Add New Item</h3></button>
                 </Link>
+
             </div>
             <div id="show-items-div">
-                <h3>Show All Items</h3>
+
                 <Link to="/show/all/items">
-                    <button >Items</button>
+                    <button className="homeButton"><h3>Show All Items</h3></button>
                 </Link>
+
             </div>
         </div>
     );

@@ -14,6 +14,7 @@ function App() {
 
         <Switch>
           <Route path='/' exact component={Home} />
+          {/* <Route path='/add/item' component={} /> */}
         </Switch>
 
         <Footer />

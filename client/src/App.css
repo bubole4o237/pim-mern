@@ -1,8 +1,15 @@
 .App {
   text-align: center;
+  background-color: rgb(236, 213, 171);
 }
 
-.App-logo {
+
+.App-header {
+  width: 700px;
+  margin: 0 auto;
+  background-color: #5265B8;
+}
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,7 +18,7 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} 
 
 .App-header {
   background-color: #282c34;
@@ -36,3 +43,4 @@
     transform: rotate(360deg);
   }
 }
+*/
