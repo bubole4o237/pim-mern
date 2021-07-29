@@ -1,0 +1,66 @@
+div#items {
+    /* border: 1px solid red; */
+}
+
+div#items h3 {
+    color: white;
+}
+
+div#items ul {
+    background-color: white;
+}
+
+span.span {
+    display: inline-block;
+    /* width: 100px; */
+    padding: 10px 5px;
+    color: white;
+    background-color: rgb(69, 44, 214);
+    /* border: 1px solid red; */
+}
+
+p#title-paragraph span.span {
+    font-weight: bold;
+    color: black;
+    background-color: #4053A6;
+    background-color: #fff;
+}
+
+p#title-paragraph {
+    margin-bottom: -20px;
+}
+
+span.categorySpan {
+    width: 80px;
+}
+
+span.nameSpan {
+    width: 250px;
+}
+
+span.dateSpan {
+    width: 100px;
+}
+
+span.days-left-span {
+    width: 70px;
+    font-weight: bold;
+}
+
+span.edit-title-span {
+    width: 40px;
+}
+
+ul#listItems {
+    list-style: none;
+}
+
+ul#listItems li {
+    display: inline-block;
+    margin: 5px;
+    /* border: 1px solid black; */
+}
+
+.crudButtons {
+    margin: 0px 10px;
+}

@@ -6,7 +6,7 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import UserInput from './Components/UserInput/UserInput';
-import Items from './Components/Items/Items';
+import ItemsList from './Components/ItemsList/ItemsList';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/add/item' component={UserInput} />
-          <Route path='/show/all/items' component={Items} />
+          <Route path='/show/all/items' component={ItemsList} />
         </Switch>
 
         <Footer />
