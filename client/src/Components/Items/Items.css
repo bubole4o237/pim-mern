@@ -1,0 +1,23 @@
+div#items h3 {
+    color: white;
+}
+
+span.span {
+    padding: 10px 20px;
+    color: white;
+    background-color: rgb(69, 44, 214);
+}
+
+ul#listItems {
+    list-style: none;
+}
+
+ul#listItems li {
+    display: inline-block;
+    margin: 5px;
+    /* border: 1px solid black; */
+}
+
+.crudButtons {
+    margin: 0px 10px;
+}

@@ -21,7 +21,7 @@ const Header = () => {
                 <section className="navbar-user">
                     <div className="first-bar">
                         <ul className="navigation-ul">
-                            <li><Link to="/" className="button">НАЧАЛО</Link></li>
+                            <li><Link to="/" className="button">Home</Link></li>
                         </ul>
                     </div>
 

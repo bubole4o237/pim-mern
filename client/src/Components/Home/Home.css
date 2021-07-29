@@ -7,6 +7,10 @@
     /* border: 1px solid black; */
 }
 
+.mainDiv > h3 {
+    color: white;
+}
+
 .mainDiv div {
     width: 300px;
     margin-top: 10px;

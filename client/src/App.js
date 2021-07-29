@@ -5,6 +5,8 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
+import UserInput from './Components/UserInput/UserInput';
+import Items from './Components/Items/Items';
 
 function App() {
   return (
@@ -14,7 +16,8 @@ function App() {
 
         <Switch>
           <Route path='/' exact component={Home} />
-          {/* <Route path='/add/item' component={} /> */}
+          <Route path='/add/item' component={UserInput} />
+          <Route path='/show/all/items' component={Items} />
         </Switch>
 
         <Footer />

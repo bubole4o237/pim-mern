@@ -1,6 +1,6 @@
 header#site-header {
     width: 700px;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     text-align: center;
     padding-top: 4px;
     background-color: #4053A6;
@@ -40,6 +40,7 @@ h1.pim-title {
     width: 250px;
     display: inline-block;
     margin: 18px auto;
+    /* color: white; */
     /* border: 1px solid black; */
     /* margin-left: 50px; */
 }

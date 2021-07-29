@@ -1,12 +1,13 @@
 .App {
   text-align: center;
+  padding: 5px 0px;
   background-color: rgb(236, 213, 171);
 }
 
 
 .App-header {
   width: 700px;
-  margin: 0 auto;
+  margin: 0px auto;
   background-color: #5265B8;
 }
 /* .App-logo {
