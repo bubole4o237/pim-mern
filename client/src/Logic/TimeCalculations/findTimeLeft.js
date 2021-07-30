@@ -1,6 +1,6 @@
 import correctedDays from './correctedDays.js';
 
-function findTimeLeft(year, month, day) {
+function findTimeLeft(year, month, day, category, name, _id) {
 
     let targetDate = new Date(year, month - 1, day);
     let targetYear = targetDate.getFullYear();
@@ -111,7 +111,14 @@ function findTimeLeft(year, month, day) {
     // console.log(`Target DATE is: ${targetDate}`);
     // console.log(`Actual DATE is: ${actualDate}`);
 
+    let finalDate = `${targetDay}.${targetMonth}.${targetYear}`;
+    
+
     return {
+        _id,
+        category,
+        name,
+        finalDate,
         textMessage,
         totalDaysLeft,
         targetDate,

@@ -1,20 +1,42 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import getUserInput from '../../Logic/getUserInput.js'
-import timeCalculator from '../../Logic/TimeCalculations/timeCalculator.js';
+import itemService from '../../services/itemService';
 
 import './UserInput.css';
 
 
-const UserInput = (props) => {
+const UserInput = ({ history }) => {
 
-    const getAllData = (e) => {
+    const onCreateItemSubmitHandler = (e) => {
         let userInputData = getUserInput(e);
-        let resultInfo = timeCalculator(userInputData);
-        if (resultInfo) {
-            console.log(resultInfo.totalDaysLeft);
-            props.history.push('/show/all/items');
-        }
+        console.log("1 " +  userInputData);
+
+        if (userInputData.category && userInputData.name && userInputData.purchasedOn && (userInputData.expireOn || (userInputData.openedOn && userInputData.duration && userInputData.period))) {
+            console.log('All data is here');
+
+            itemService.create(
+                userInputData.category,
+                userInputData.name,
+                userInputData.purchasedOn,
+                userInputData.expireOn,
+                userInputData.openedOn,
+                userInputData.duration,
+                userInputData.period
+                )
+                .then((res) => {
+                    console.log(res);
+                    history.push('/show/all/items');
+                });
+            } else {
+                console.log("There is a missing data!!!");
+                return;
+            }
+                // let resultInfo = timeCalculator(userInputData);
+        // if (resultInfo) {
+        //     console.log(resultInfo.totalDaysLeft);
+        //     props.history.push('/show/all/items');
+        // }
 
     }
 
@@ -30,7 +52,7 @@ const UserInput = (props) => {
     return (
         <div id="userInput">
             <h3>Add New Item</h3>
-            <form onSubmit={getAllData}>
+            <form onSubmit={onCreateItemSubmitHandler}>
                 <fieldset>
                     <legend>Item info:</legend>
 

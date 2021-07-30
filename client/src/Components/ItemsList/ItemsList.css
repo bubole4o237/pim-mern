@@ -15,8 +15,13 @@ span.span {
     /* width: 100px; */
     padding: 10px 5px;
     color: white;
-    background-color: rgb(69, 44, 214);
+    /* background-color: rgb(69, 44, 214); */
+    background-color: #4053A6;
     /* border: 1px solid red; */
+}
+
+span.color {
+    background-color: darkred;
 }
 
 p#title-paragraph span.span {

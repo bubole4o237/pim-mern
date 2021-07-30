@@ -3,10 +3,17 @@ const getUserInput = (e) => {
     // console.log(e.target);
     const { categoryItem, itemName, dateOfPurchase, expiryDate, startDate, durationInput, periodType } = e.target;
  
+    // console.log(categoryItem.value, itemName.value, dateOfPurchase.value, expiryDate.value, startDate.value, durationInput.value, periodType.value);
+
     let category = categoryItem.value;
 
     let name = itemName.value;
+
+    let purchasedOn = dateOfPurchase.value;
+    let expireOn = expiryDate.value;
+    let openedOn = startDate.value;
  
+    /*
     let purchaseData = dateOfPurchase.value.split('-');
     let purchaseYear = Number(purchaseData[0]);
     let purchaseMonth = Number(purchaseData[1]);
@@ -21,32 +28,28 @@ const getUserInput = (e) => {
     let startYear = Number(start[0]);
     let startMonth = Number(start[1]);
     let startDay = Number(start[2]);
+    */
 
     let duration = Number(durationInput.value);
 
     let period = periodType.value;
 
-    // console.log(category);
-    // console.log(name);
-    // console.log(purchaseDay, purchaseMonth, purchaseYear);
-    // console.log(expiryDay, expiryMonth, expiryYear);
-    // console.log(startDay, startMonth, startYear);
-    // console.log(duration);
-    // console.log(period);
-    // console.log('Bravo!!!');
 
     return {
         category,
         name,
-        purchaseDay,
-        purchaseMonth,
-        purchaseYear,
-        expiryDay,
-        expiryMonth,
-        expiryYear,
-        startDay,
-        startMonth,
-        startYear,
+        purchasedOn,
+        expireOn,
+        openedOn,
+        // purchaseDay,
+        // purchaseMonth,
+        // purchaseYear,
+        // expiryDay,
+        // expiryMonth,
+        // expiryYear,
+        // startDay,
+        // startMonth,
+        // startYear,
         duration,
         period
     };
