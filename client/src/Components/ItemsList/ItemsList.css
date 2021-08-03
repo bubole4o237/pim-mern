@@ -69,3 +69,11 @@ ul#listItems li {
 .crudButtons {
     margin: 0px 10px;
 }
+
+ul#listItems li.itemNotFound p {
+    color: white;
+    background-color: darkred;
+    font-weight: bold;
+    padding: 20px;
+    margin-left: -45px;
+}

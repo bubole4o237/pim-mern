@@ -21,7 +21,7 @@ const getAll = (category) => {
 
 
 const getOne = (itemId) => {
-    console.log(itemId);
+    console.log("ITEM ID is: " + itemId);
     return Item.find({_id: itemId}).exec();
 }
 

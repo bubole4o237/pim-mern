@@ -1,6 +1,7 @@
 // import {Link} from 'react-router-dom';
 import './Item.css';
 // import delButton from '../../img/delete-button-icon.png';
+import itemService from '../../services/itemService';
 import editButton from '../../img/edit-button-icon.png';
 
 const Item = ({
@@ -14,13 +15,15 @@ const Item = ({
 
     const onClickEditItemButtonHandler = () => {
         console.log(id, category, name, finalDate, daysLeft);
+        // itemService.getOne(id)
+        // .then(res => console.log(res));
     }
 
-    let isExpired = false;
+    // let isExpired = false;
 
-    if (daysLeft < 0) {
-        isExpired = true;
-    }
+    // if (daysLeft < 0) {
+    //     isExpired = true;
+    // }
 
     return (
         <li className="item-info">
@@ -30,14 +33,14 @@ const Item = ({
                 <span className="span dateSpan">{finalDate}</span>
                 <span className="span days-left-span" style={{
                     backgroundColor: (daysLeft < 0) ? 'red'
-                        : (daysLeft == 0) ? 'orange'
+                        : (daysLeft === 0) ? 'orange'
                             : (daysLeft > 0 && daysLeft < 11) ? 'yellow'
                                 : (daysLeft > 10 && daysLeft < 30) ? '#8505a8'
                                     : '#3b44bf',
                     color: (daysLeft > 0 && daysLeft < 11) ? 'black' : 'white'
                 }}>{daysLeft}</span>
                 <button className="crudButtons" onClick={onClickEditItemButtonHandler}>
-                    <img src={editButton} alt="red X" height="16" />
+                    <img src={editButton} alt="red X" title="Show and edit" height="16" />
                 </button>
             </p>
         </li>

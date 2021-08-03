@@ -32,7 +32,7 @@ router.get('/get/items', (req, res, next) => {
 });
 
 
-router.get('/items/:id', (req, res, next) => {
+router.get('/get/items/:id', (req, res, next) => {
 
     itemService.getOne(req.params.id)
         .then((result) => {
