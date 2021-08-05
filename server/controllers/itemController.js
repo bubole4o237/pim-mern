@@ -17,6 +17,24 @@ router.post('/create/item', (req, res, next) => {
         });
 });
 
+
+router.put('/update/items/:id', (req, res, next) => {
+    console.log('This is req.body: --- ' + req.body.name);
+    console.log('This is rq.query: ' + req.query.name);
+    const {id, category, name, purchasedOn, expireOn, openedOn, duration, type } = req.body;
+
+    itemService.update(id, category, name, purchasedOn, expireOn, openedOn, duration, type)
+    .then((result) => {
+        res.json(result);
+    })
+    .catch(err => {
+        console.log(err);
+        next(err);
+    })
+
+});
+
+
 router.get('/get/items', (req, res, next) => {
     console.log(req.query);
     const { category } = req.query;

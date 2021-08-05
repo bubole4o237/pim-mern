@@ -19,6 +19,35 @@ const create = (category, name, purchasedOn, expireOn, openedOn, duration, type)
     })
         .then(res => res.json());
 };
+/////////// update an Item /////////////////////////////////
+
+const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, type) => {
+    
+    let itemIdUrl = `http://localhost:5000/api/item/update/items/${id}`;
+
+    // console.log('ItemIdUrl: ' + itemIdUrl);
+
+    let item = {
+        id,
+        category,
+        name,
+        purchasedOn,
+        expireOn,
+        openedOn,
+        duration,
+        type
+    }
+
+    return fetch(itemIdUrl, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(item)
+    })
+        .then(res => res.n);
+        // .then(res => res.json());
+};
 
 
 /////////// getAll Items or all Items by category /////////////
@@ -62,6 +91,7 @@ const getOne = (id) => {
 
 module.exports = {
     create,
+    update,
     getAll,
     getOne
 }

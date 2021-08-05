@@ -62,10 +62,11 @@ p#p2 {
     /* border: 1px solid black; */
 }
 
-div#userInput input#submit {
+div#userInput input.submit {
     font-size: 20px;
     font-weight: bold;
     padding: 5px 20px;
+    margin: 0px 10px;
     color: #4053A6;
     background-color: white;
     border-radius: 10px;

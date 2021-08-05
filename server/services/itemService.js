@@ -9,6 +9,15 @@ const create = (category, name, purchasedOn, expireOn, openedOn, duration, type)
 
 
 
+const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, type) => {
+
+    // let item = new Item({ category, name, purchasedOn, expireOn, openedOn, duration, type });
+
+    return Item.updateOne({_id: id}, {category, name, purchasedOn, expireOn, openedOn, duration, type});
+};
+
+
+
 const getAll = (category) => {
 
     if (category) {
@@ -27,6 +36,7 @@ const getOne = (itemId) => {
 
 module.exports = {
     create,
+    update,
     getAll,
     getOne
 }

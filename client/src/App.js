@@ -7,6 +7,7 @@ import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import UserInput from './Components/UserInput/UserInput';
 import ItemsList from './Components/ItemsList/ItemsList';
+import SelectedItem from './Components/SelectedItem/SelectedItem';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/add/item' component={UserInput} />
           <Route path='/show/all/items' component={ItemsList} />
+          <Route path='/find/item/:id' component={SelectedItem} />
         </Switch>
 
         <Footer />

@@ -66,7 +66,7 @@ const UserInput = ({ history }) => {
                             <option value="service">Service</option>
                             <option value="other">Other</option>
                         </select>
-                        <br />
+                        <br /> 
                         <label htmlFor="itemName">Name:</label>
                         <br />
                         <input type="text" className="inputFields" id="itemName" name="itemName" />
@@ -110,7 +110,7 @@ const UserInput = ({ history }) => {
 
                 </fieldset>
 
-                <input id="submit" type="submit" value="save" />
+                <input className="submit" type="submit" value="save" />
 
             </form>
         </div>

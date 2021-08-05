@@ -12,7 +12,7 @@ const Items = () => {
     const [items, setItems] = useState([]);
     const [category, setCategory] = useState('');
     const [searchWord, setSearchWord] = useState('');
-    
+
     useEffect(() => {
         console.log('JUST TEST');
         itemService.getAll(category)
@@ -77,9 +77,11 @@ const Items = () => {
                         finalDate={item.finalDate}
                         daysLeft={item.totalDaysLeft}
                     />
-                ) : <li className="itemNotFound">
-                    <p>Sorry! No such Item found in your list!</p>
-                </li>}
+                )
+                    : searchWord ? <li className="itemNotFound">
+                        <p>Sorry! No such Item found in your list!</p>
+                    </li>
+                        : <li></li>}
             </ul>
         </div>
     );

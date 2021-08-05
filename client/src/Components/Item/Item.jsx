@@ -1,7 +1,7 @@
-// import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Item.css';
 // import delButton from '../../img/delete-button-icon.png';
-import itemService from '../../services/itemService';
+// import itemService from '../../services/itemService';
 import editButton from '../../img/edit-button-icon.png';
 
 const Item = ({
@@ -39,9 +39,11 @@ const Item = ({
                                     : '#3b44bf',
                     color: (daysLeft > 0 && daysLeft < 11) ? 'black' : 'white'
                 }}>{daysLeft}</span>
-                <button className="crudButtons" onClick={onClickEditItemButtonHandler}>
-                    <img src={editButton} alt="red X" title="Show and edit" height="16" />
-                </button>
+                <Link to={`/find/item/${id}`}>
+                    <button className="crudButtons" onClick={onClickEditItemButtonHandler}>
+                        <img src={editButton} alt="red X" title="Show and edit" height="16" />
+                    </button>
+                </Link>
             </p>
         </li>
     );
