@@ -15,8 +15,6 @@ const Item = ({
 
     const onClickEditItemButtonHandler = () => {
         console.log(id, category, name, finalDate, daysLeft);
-        // itemService.getOne(id)
-        // .then(res => console.log(res));
     }
 
     // let isExpired = false;

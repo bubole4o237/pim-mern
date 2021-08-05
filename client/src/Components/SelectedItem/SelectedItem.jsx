@@ -37,11 +37,7 @@ const SelectedItem = ({ history, match }) => {
     let openedOnItemDB = item.openedOn;
     let durationItemDB = item.duration;
     let typeItemDB = item.type;
-    // let testDate = '2024-11-03';
-    // let testDate = '';
-    // console.log('1: ' + purchasedOnItemDB);
-    // console.log('2: ' + testDate);
-
+    
 
     const onEditItemSubmitHandler = (e) => {
         let userInputData = getUserInput(e);
@@ -68,21 +64,21 @@ const SelectedItem = ({ history, match }) => {
             console.log("There is a missing data!!!");
             return;
         }
-        // let resultInfo = timeCalculator(userInputData);
-        // if (resultInfo) {
-        //     console.log(resultInfo.totalDaysLeft);
-        //     props.history.push('/show/all/items');
-        // }
-
     }
 
     const onClickButtonCancelHandler = () => {
-        console.log('Edot canceled by the user!!!');
-                    history.push('/show/all/items');
+        console.log('Edit canceled by the user!!!');
+        history.push('/show/all/items');
     }
 
     const onClickButtonDeleteHandler = () => {
         console.log('Button DELETE is clicked');
+        itemService.deleteItem(itemId)
+            .then((res) => {
+                console.log(res);
+                console.log('The ITEM was deleted successfully!!!');
+                history.push('/show/all/items');
+            });
     }
 
     const clearExpiryDate = (e) => {

@@ -1,3 +1,5 @@
+//////////// create an Item ///////////////////////////////////
+
 const create = (category, name, purchasedOn, expireOn, openedOn, duration, type) => {
     
     let item = {
@@ -17,15 +19,14 @@ const create = (category, name, purchasedOn, expireOn, openedOn, duration, type)
         },
         body: JSON.stringify(item)
     })
-        .then(res => res.json());
+        .then(res => res.json())
+        .catch(err => console.log(err));
 };
 /////////// update an Item /////////////////////////////////
 
 const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, type) => {
     
     let itemIdUrl = `http://localhost:5000/api/item/update/items/${id}`;
-
-    // console.log('ItemIdUrl: ' + itemIdUrl);
 
     let item = {
         id,
@@ -45,7 +46,8 @@ const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, t
         },
         body: JSON.stringify(item)
     })
-        .then(res => res.n);
+        .then(res => res.n)
+        .catch(err => console.log(err));
         // .then(res => res.json());
 };
 
@@ -55,7 +57,7 @@ const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, t
 const url = 'http://localhost:5000/api/item/get/items';
 
 const getAll = (category = '') => {
-    console.log("CATEGORY FROM itemService.js: " + category);
+    // console.log("CATEGORY FROM itemService.js: " + category);
 
     let itemsUrl = url;
 
@@ -66,7 +68,7 @@ const getAll = (category = '') => {
     } 
 
 
-    console.log(itemsUrl);
+    // console.log(itemsUrl);
 
     return fetch(itemsUrl)
         .then(res => res.json())
@@ -77,10 +79,8 @@ const getAll = (category = '') => {
 /////////// getOne Item by ID /////////////
 
 const getOne = (id) => {
-    console.log("Hi from function getOne");
-    let itemIdUrl = url + `/${id}`;
 
-    console.log('ItemIdUrl: ' + itemIdUrl);
+    let itemIdUrl = url + `/${id}`;
 
     return fetch(itemIdUrl)
         .then(res => res.json())
@@ -89,9 +89,25 @@ const getOne = (id) => {
 
 
 
+//////////// delete Item by ID /////////////
+
+const deleteItem = (id) => {
+    console.log("Hi from function deleteITEM");
+
+    let itemIdUrl = `http://localhost:5000/api/item/delete/item/${id}`;
+
+
+    return fetch(itemIdUrl, {
+        method: "DELETE"
+    })
+        .then(res => res.n)
+        .catch(err => console.log(err));
+}
+
 module.exports = {
     create,
     update,
     getAll,
-    getOne
+    getOne,
+    deleteItem
 }

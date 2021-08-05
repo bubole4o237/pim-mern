@@ -5,7 +5,7 @@ function addedTimeFromUser(time, type, openedYearInput, openedMonthInput, opened
         actualDate = new Date(openedYearInput, openedMonthInput - 1, openedDayInput);
     }
     
-    console.log(actualDate);
+    // console.log(actualDate);
     let actualYear = actualDate.getFullYear();
     let actualMonth = actualDate.getMonth() + 1;
     let actualDay = actualDate.getDate();

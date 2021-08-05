@@ -34,9 +34,18 @@ const getOne = (itemId) => {
     return Item.find({_id: itemId}).exec();
 }
 
+
+
+const deleteItem = (itemId) => {
+    console.log("ITEM ID is: " + itemId);
+    return Item.deleteOne({_id: itemId}).exec();
+}
+
+
 module.exports = {
     create,
     update,
     getAll,
-    getOne
+    getOne,
+    deleteItem
 }

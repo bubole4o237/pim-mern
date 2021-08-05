@@ -10,7 +10,7 @@ const UserInput = ({ history }) => {
 
     const onCreateItemSubmitHandler = (e) => {
         let userInputData = getUserInput(e);
-        console.log("1 " +  userInputData);
+        console.log("1 " + userInputData);
 
         if (userInputData.category && userInputData.name && userInputData.purchasedOn && (userInputData.expireOn || (userInputData.openedOn && userInputData.duration && userInputData.period))) {
             console.log('All data is here');
@@ -23,21 +23,15 @@ const UserInput = ({ history }) => {
                 userInputData.openedOn,
                 userInputData.duration,
                 userInputData.period
-                )
+            )
                 .then((res) => {
                     console.log(res);
                     history.push('/show/all/items');
                 });
-            } else {
-                console.log("There is a missing data!!!");
-                return;
-            }
-                // let resultInfo = timeCalculator(userInputData);
-        // if (resultInfo) {
-        //     console.log(resultInfo.totalDaysLeft);
-        //     props.history.push('/show/all/items');
-        // }
-
+        } else {
+            console.log("There is a missing data!!!");
+            return;
+        }
     }
 
 
@@ -48,6 +42,7 @@ const UserInput = ({ history }) => {
     const clearStartDate = (e) => {
         e.target.parentNode.nextSibling.nextSibling.firstChild.nextSibling.nextSibling.value = '';
     }
+
 
     return (
         <div id="userInput">
@@ -66,7 +61,7 @@ const UserInput = ({ history }) => {
                             <option value="service">Service</option>
                             <option value="other">Other</option>
                         </select>
-                        <br /> 
+                        <br />
                         <label htmlFor="itemName">Name:</label>
                         <br />
                         <input type="text" className="inputFields" id="itemName" name="itemName" />

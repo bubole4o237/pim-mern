@@ -77,3 +77,10 @@ ul#listItems li.itemNotFound p {
     padding: 20px;
     margin-left: -45px;
 }
+
+img#addButtonPlusIcon {
+    /* display: inline-block; */
+    position: absolute;
+    margin-top: 36px;
+    margin-left: 206px;
+}

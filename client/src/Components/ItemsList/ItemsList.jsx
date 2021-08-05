@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import * as itemService from '../../services/itemService';
 import transformDataFromDB from '../../Logic/transformDataFromDB.js';
 import timeCalculator from '../../Logic/TimeCalculations/timeCalculator.js';
+
+import addButtonIcon from '../../img/addPlus.png';
 
 import Item from '../Item/Item';
 import './ItemsList.css';
@@ -14,7 +18,6 @@ const Items = () => {
     const [searchWord, setSearchWord] = useState('');
 
     useEffect(() => {
-        console.log('JUST TEST');
         itemService.getAll(category)
             .then(res => {
                 setItems(res);
@@ -27,11 +30,8 @@ const Items = () => {
 
     if (searchWord) {
         resultItems = resultItems.filter(i => i.name.toLowerCase().includes(searchWord.toLowerCase()));
-        console.log(resultItems);
     }
 
-    console.log(transformedItems);
-    console.log(resultItems);
 
     const categoryHandler = (e) => {
         setSearchWord('');
@@ -44,8 +44,15 @@ const Items = () => {
         e.target.previousSibling.value = '';
     }
 
+
     return (
         <div id="items">
+            <Link to={`/add/item`}>
+                {/* <button className="crudButtons"> */}
+                    {/* <img src={editButton} alt="edit button" title="Show and edit" height="16" /> */}
+                    <img src={addButtonIcon} id="addButtonPlusIcon" alt="add button" title="Add new item" width="36" />
+                {/* </button> */}
+            </Link>
             <h3>List items</h3>
             <div>
                 {/* <form> */}

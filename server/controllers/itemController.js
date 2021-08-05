@@ -62,6 +62,17 @@ router.get('/get/items/:id', (req, res, next) => {
         })
 });
 
+router.delete('/delete/item/:id', (req, res, next) => {
 
+    itemService.deleteItem(req.params.id)
+    .then((result) => {
+        console.log('item deleted');
+        res.json(result);
+    })
+    .catch(err => {
+        console.log(err);
+        next(err);
+    })
+})
 
 module.exports = router;
