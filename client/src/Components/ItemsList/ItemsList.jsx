@@ -17,12 +17,14 @@ const Items = () => {
     const [category, setCategory] = useState('');
     const [searchWord, setSearchWord] = useState('');
 
+    const ownerId = localStorage.getItem('userId');
+
     useEffect(() => {
-        itemService.getAll(category)
+        itemService.getAll(ownerId, category)
             .then(res => {
                 setItems(res);
             });
-    }, [category]);
+    }, [ownerId, category]);
 
     let transformedItems = items.map(x => transformDataFromDB(x));
     let resultItems = transformedItems.map(item => timeCalculator(item));
@@ -88,7 +90,9 @@ const Items = () => {
                     : searchWord ? <li className="itemNotFound">
                         <p>Sorry! No such Item found in your list!</p>
                     </li>
-                        : <li></li>}
+                        : <li className="itemNotFound">
+                            <p>There is no data in this section!</p>
+                            </li>}
             </ul>
         </div>
     );

@@ -97,7 +97,7 @@ const SelectedItem = ({ history, match }) => {
             paddingTop: '10px',
             paddingBottom: '20px'
         }}>
-            <h3>Update or Edit the Item Info</h3>
+            <h3>Edit Item Info or Delete Item</h3>
             <form onSubmit={onEditItemSubmitHandler}>
                 <fieldset>
                     <legend>Item info:</legend>
@@ -156,9 +156,9 @@ const SelectedItem = ({ history, match }) => {
 
                 </fieldset>
 
-                <input className="submit" type="submit" value="edit" />
+                <input className="submit" id="deleteSelectedItemButton" type="button" onClick={onClickButtonDeleteHandler} value="delete" />
                 <input className="submit" type="button" onClick={onClickButtonCancelHandler} value="cancel" />
-                <input className="submit" type="button" onClick={onClickButtonDeleteHandler} value="delete" />
+                <input className="submit" id="saveChangesButton" type="submit" value="save" />
 
             </form>
         </div>

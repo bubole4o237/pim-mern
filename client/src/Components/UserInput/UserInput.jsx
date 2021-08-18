@@ -1,12 +1,16 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import getUserInput from '../../Logic/getUserInput.js'
 import itemService from '../../services/itemService';
+
+import showAllItemsListIcon from '../../img/info-button-icon-black.png';
 
 import './UserInput.css';
 
 
 const UserInput = ({ history }) => {
+
+    const ownerId = localStorage.getItem('userId');
 
     const onCreateItemSubmitHandler = (e) => {
         let userInputData = getUserInput(e);
@@ -22,7 +26,8 @@ const UserInput = ({ history }) => {
                 userInputData.expireOn,
                 userInputData.openedOn,
                 userInputData.duration,
-                userInputData.period
+                userInputData.period,
+                ownerId
             )
                 .then((res) => {
                     console.log(res);
@@ -46,6 +51,12 @@ const UserInput = ({ history }) => {
 
     return (
         <div id="userInput">
+            <Link to={`/show/all/items`}>
+                {/* <button className="crudButtons"> */}
+                    {/* <img src={editButton} alt="edit button" title="Show and edit" height="16" /> */}
+                    <img src={showAllItemsListIcon} id="showAllItemsListIcon" alt="show items button" title="Show all items" width="36" />
+                {/* </button> */}
+            </Link>
             <h3>Add New Item</h3>
             <form onSubmit={onCreateItemSubmitHandler}>
                 <fieldset>

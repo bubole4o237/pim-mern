@@ -1,10 +1,15 @@
 .mainDiv {
     /* width: 700px; */
-    margin: 0px auto;
+    /* margin: 0px auto; */
     padding-bottom: 50px;
     clear: both;
     /* text-align: center; */
     /* border: 1px solid black; */
+}
+
+.notSignIn {
+    padding: 20px;
+    font-size: 20px;
 }
 
 .mainDiv > h3 {

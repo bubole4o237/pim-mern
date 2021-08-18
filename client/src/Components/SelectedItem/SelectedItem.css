@@ -1,3 +1,13 @@
 /* form {
     background-color: firebrick;
 } */
+
+div#userInput input#deleteSelectedItemButton {
+    /* background-color: rgb(245, 133, 6); */
+    color: firebrick;
+}
+
+div#userInput input#saveChangesButton {
+    /* background-color: rgba(6, 245, 26, 0.575); */
+    color: rgb(4, 145, 34);
+}

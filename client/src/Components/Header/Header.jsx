@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
+import userService from '../../services/userService';
 
-const Header = () => {
+const Header = (props) => {
+
+    const username = props.username;
+    const setIsLog = props.setIsLog;
 
     const onRegisterButtonClickHandler = () => {
         console.log('HI');
@@ -10,6 +14,21 @@ const Header = () => {
     const onLoginButtonClickHandler = () => {
         console.log('ZDR!');
     };
+
+    const onLogoutButtonClickHandler = () => {
+        userService.logout()
+            .then(() => {
+                setIsLog(false);
+            })
+    }
+
+    let userStatus = username ?
+        <><li><Link to="/" className="button"><i className="fas fa-sign-in-alt"></i>Hi, {username}</Link></li>
+            <li><Link to="/" className="button" onClick={onLogoutButtonClickHandler}><i className="fas fa-sign-in-alt"></i>Logout</Link></li></>
+        : <><li><Link to="/user/register" className="button" onClick={onRegisterButtonClickHandler}><i className="fas fa-sign-in-alt"></i> Register</Link></li>
+            <li><Link to="/user/login" className="button" onClick={onLoginButtonClickHandler}><i className="fas fa-sign-in-alt"></i> Login</Link></li></>;
+
+
 
     return (
         <header id="site-header">
@@ -29,10 +48,7 @@ const Header = () => {
 
                     <div className="second-bar">
                         <ul className="navigation-ul">
-
-                            <li><Link to="/register" className="button" onClick={onRegisterButtonClickHandler}><i className="fas fa-sign-in-alt"></i> Register</Link></li>
-                            <li><Link to="/login" className="button" onClick={onLoginButtonClickHandler}><i className="fas fa-sign-in-alt"></i> Login</Link></li>
-
+                            {userStatus}
                         </ul>
                     </div>
                 </section>

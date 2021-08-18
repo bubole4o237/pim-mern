@@ -24,6 +24,9 @@ const itemScheme = new mongoose.Schema({
     },
     type: {
         type: String
+    },
+    ownerId: {
+        type: String
     }
 });
 

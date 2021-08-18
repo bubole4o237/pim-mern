@@ -1,6 +1,6 @@
 //////////// create an Item ///////////////////////////////////
 
-const create = (category, name, purchasedOn, expireOn, openedOn, duration, type) => {
+const create = (category, name, purchasedOn, expireOn, openedOn, duration, type, ownerId) => {
     
     let item = {
         category,
@@ -9,7 +9,8 @@ const create = (category, name, purchasedOn, expireOn, openedOn, duration, type)
         expireOn,
         openedOn,
         duration,
-        type
+        type,
+        ownerId
     }
 
     return fetch('http://localhost:5000/api/item/create/item', {
@@ -56,10 +57,10 @@ const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, t
 
 const url = 'http://localhost:5000/api/item/get/items';
 
-const getAll = (category = '') => {
+const getAll = (ownerId, category = '') => {
     // console.log("CATEGORY FROM itemService.js: " + category);
 
-    let itemsUrl = url;
+    let itemsUrl = url + `?ownerId=${ownerId}`;
 
     if (category) {
 
