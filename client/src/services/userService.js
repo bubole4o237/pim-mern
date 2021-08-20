@@ -1,12 +1,6 @@
 //////////// Register an User ///////////////////////////////////
 
 const register = (user) => {
-    
-    // let user = {
-    //     username,
-    //     password,
-    //     repeatPassword
-    // }
 
     return fetch('http://localhost:5000/api/user/register', {
         method: "POST",
@@ -34,14 +28,10 @@ const login = (user) => {
         .then((res) => res.json())
         .then((result) => {
             console.log(result);
-            // localStorage.setItem('userToken', result.token);
             localStorage.setItem('username', result.username);
             localStorage.setItem('userId', result._id);
-
-            // isLog(true);
         })
         .catch(err => console.log(err));
-
 
     return result;
 };
@@ -56,13 +46,15 @@ const logout = async () => {
             localStorage.removeItem('username'),
             localStorage.removeItem('userId'),
         ]);
-        
+
         return results;
 
     } catch (err) {
         console.log(err);
     }
 };
+
+
 
 module.exports = {
     register,

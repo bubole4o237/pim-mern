@@ -37,8 +37,8 @@ router.put('/update/items/:id', (req, res, next) => {
 
 router.get('/get/items', (req, res, next) => {
     console.log(req.query);
-    const queries = req.query.ownerId.split('?category=');
-    const [ownerId, category] = queries;
+
+    const { ownerId, category } = req.query;
 
     itemService.getAll(ownerId, category)  //////////////
         .then((result) => {

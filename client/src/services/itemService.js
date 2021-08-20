@@ -49,7 +49,6 @@ const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, t
     })
         .then(res => res.n)
         .catch(err => console.log(err));
-        // .then(res => res.json());
 };
 
 
@@ -58,18 +57,14 @@ const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, t
 const url = 'http://localhost:5000/api/item/get/items';
 
 const getAll = (ownerId, category = '') => {
-    // console.log("CATEGORY FROM itemService.js: " + category);
-
+    
     let itemsUrl = url + `?ownerId=${ownerId}`;
 
     if (category) {
 
-        itemsUrl += (category && category !== 'all') ? `?category=${category}` : '';
+        itemsUrl += (category && category !== 'all') ? `&category=${category}` : '';
         
     } 
-
-
-    // console.log(itemsUrl);
 
     return fetch(itemsUrl)
         .then(res => res.json())
@@ -104,6 +99,7 @@ const deleteItem = (id) => {
         .then(res => res.n)
         .catch(err => console.log(err));
 }
+
 
 module.exports = {
     create,

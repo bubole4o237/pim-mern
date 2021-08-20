@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import userService from '../../services/userService';
 // import './Login.css';
 
@@ -18,31 +16,14 @@ const Login = (props) => {
             password: password.value
         }
 
-        // fetch('http://localhost:5500/api/auth/login', {
-        //     method: "POST",
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(user)
-        // })
-        //     .then(res => res.json())
-
         userService.login(user)
-            .then(() => {
-                // console.log(result);
-                // .then((result) => {
-                //     console.log(result);
-                //     localStorage.setItem('userToken', result.token);
-                //     localStorage.setItem('username', result.username);
-                //     localStorage.setItem('userId', result._id);
-                // isLog(true);
-                
+            .then(() => { 
                 setIsLog(true);
 
                 props.history.push('/');
             })
             // })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err.message));
 
     }
 

@@ -73,12 +73,23 @@ const SelectedItem = ({ history, match }) => {
 
     const onClickButtonDeleteHandler = () => {
         console.log('Button DELETE is clicked');
-        itemService.deleteItem(itemId)
-            .then((res) => {
-                console.log(res);
-                console.log('The ITEM was deleted successfully!!!');
-                history.push('/show/all/items');
-            });
+        const userConfirmation = prompt("You will delete this item! Are you sure?", "Yes, I want to delete this item.");
+       
+        if(userConfirmation) {
+            console.log(userConfirmation);
+
+            itemService.deleteItem(itemId)
+                .then((res) => {
+                    console.log(res);
+                    console.log('The ITEM was deleted successfully!!!');
+                    history.push('/show/all/items');
+                });
+
+        } else {
+            console.log("The deletion is canceled.");
+            return;
+        } 
+    
     }
 
     const clearExpiryDate = (e) => {

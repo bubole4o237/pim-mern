@@ -1,0 +1,16 @@
+.notificationDiv {
+    /* width: 700px; */
+    /* position: absolute; */
+    /* text-align: right; */
+    text-align: center;
+}
+
+.notificationDiv p {
+    display: block;
+    /* width: 250px; */
+    margin: 10px auto;
+    padding: 8px 0px;
+    text-align: center;
+    background-color: brown;
+    color: #fff;
+}
