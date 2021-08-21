@@ -31,7 +31,11 @@ const login = (user) => {
             localStorage.setItem('username', result.username);
             localStorage.setItem('userId', result._id);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            // return 'error';
+            throw Error("ole");
+        });
 
     return result;
 };

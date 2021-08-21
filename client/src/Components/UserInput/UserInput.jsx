@@ -32,6 +32,8 @@ const UserInput = ({ history }) => {
                 .then((res) => {
                     console.log(res);
                     history.push('/show/all/items');
+                    window.location = document.URL;  ////////// Reload the itemList page and refresh the notification ////////////////
+
                 });
         } else {
             console.log("There is a missing data!!!");
@@ -53,8 +55,8 @@ const UserInput = ({ history }) => {
         <div id="userInput">
             <Link to={`/show/all/items`}>
                 {/* <button className="crudButtons"> */}
-                    {/* <img src={editButton} alt="edit button" title="Show and edit" height="16" /> */}
-                    <img src={showAllItemsListIcon} id="showAllItemsListIcon" alt="show items button" title="Show all items" width="36" />
+                {/* <img src={editButton} alt="edit button" title="Show and edit" height="16" /> */}
+                <img src={showAllItemsListIcon} id="showAllItemsListIcon" alt="show items button" title="Show all items" width="36" />
                 {/* </button> */}
             </Link>
             <h3>Add New Item</h3>

@@ -1,7 +1,11 @@
+import { useState } from 'react';
+import Notification from '../Notification/Notification';
 import userService from '../../services/userService';
 // import './Login.css';
 
 const Login = (props) => {
+
+    const [textMessage, setTextMessage] = useState('');
 
     const setIsLog = props.setIsLog;
 
@@ -17,13 +21,18 @@ const Login = (props) => {
         }
 
         userService.login(user)
-            .then(() => { 
-                setIsLog(true);
-
-                props.history.push('/');
+            .then((res) => {
+                    
+                    setIsLog(true);
+                    
+                    props.history.push('/');
+                
             })
             // })
-            .catch(err => console.log(err.message));
+            .catch(err => {
+                console.log(err.message);
+                setTextMessage('Username or password incorrect!');
+            });
 
     }
 
@@ -31,6 +40,9 @@ const Login = (props) => {
     return (
         <section className="create">
             <div className="main-div">
+
+                <Notification text={textMessage} setText={setTextMessage} />
+
                 <form onSubmit={onLoginFormSubmitHandler} className="form-register-login">
                     <fieldset id="fieldset-register">
                         <legend className="legend-register">Login form</legend>

@@ -59,6 +59,8 @@ const SelectedItem = ({ history, match }) => {
                 .then((res) => {
                     console.log(res);
                     history.push('/show/all/items');
+                    window.location = document.URL;  ////////// Reload the itemList page and refresh the notification ////////////////
+
                 });
         } else {
             console.log("There is a missing data!!!");
@@ -78,11 +80,13 @@ const SelectedItem = ({ history, match }) => {
         if(userConfirmation) {
             console.log(userConfirmation);
 
+            
             itemService.deleteItem(itemId)
-                .then((res) => {
-                    console.log(res);
-                    console.log('The ITEM was deleted successfully!!!');
-                    history.push('/show/all/items');
+            .then((res) => {
+                console.log(res);
+                console.log('The ITEM was deleted successfully!!!');
+                history.push('/show/all/items');
+                window.location = document.URL;  ////////// Reload the itemList page and refresh the notification ////////////////
                 });
 
         } else {

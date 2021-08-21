@@ -14,7 +14,7 @@ const register = (username, password) => {
 const login = async (username, password) => {
     let user = await User.findOne({ username });
 
-    if (!user) throw { message: 'No such user', status: 404 }
+    if (!user) throw { message: 'No such user', status: 404 };
 
     let areEqual = (password === user.password) ? true : false;
 

@@ -1,5 +1,6 @@
 // import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Notification from '../Notification/Notification';
 import './Register.css';
 import userService from '../../services/userService';
 
@@ -10,6 +11,7 @@ const Register = ({ history }) => {
     const [messageUsername, setMessageUsername] = useState('');
     const [messagePassword, setMessagePassword] = useState('');
     const [messageRepeatPassword, setMessageRepeatPassword] = useState('');
+    const [textMessage, setTextMessage] = useState('');
 
     const onRegisterFormSubmitHandler = (e) => {
         e.preventDefault();
@@ -18,20 +20,28 @@ const Register = ({ history }) => {
 
         const { username, password, repeatPassword } = e.target;
 
-        const user = {
-            username: username.value,
-            password: password.value,
-            repeatPassword: repeatPassword.value
+        if ((username.value.length > 0) && (password.value.length > 5) && (password.value === repeatPassword.value)) {
+
+            const user = {
+                username: username.value,
+                password: password.value,
+                repeatPassword: repeatPassword.value
+            }
+
+            userService.register(user)
+                .then((res) => {
+                    console.log(res);
+
+                    history.push('/user/login');
+                })
+                .catch(err => {
+                    console.log(err);
+                    history.push('/user/register');
+                });
+
+        } else {
+            setTextMessage('Something went wrong! Please, verify your data and try again.');
         }
-
-        userService.register(user)
-            .then((res) => {
-                console.log(res);
-
-                history.push('/user/login');
-            })
-            .catch(err => console.log(err));
-
     }
 
     const onBlurUsernameInput = (e) => {
@@ -59,6 +69,7 @@ const Register = ({ history }) => {
                     let repeatPasswordValue = e.target.parentNode.parentNode.nextSibling.children[1].children[0].value;
                     if ((e.target.value !== repeatPasswordValue) && ((repeatPasswordValue.length > 0) || (messageRepeatPassword))) {
                         setMessageRepeatPassword('repeatPassword mismatch the password');
+                        setMessagePassword('');
                     } else {
                         setMessagePassword('');
                         setMessageRepeatPassword('');
@@ -80,6 +91,9 @@ const Register = ({ history }) => {
 
         <section className="create">
             <div className="main-div">
+
+                <Notification text={textMessage} setText={setTextMessage} />
+
                 <form onSubmit={onRegisterFormSubmitHandler} className="form-register-login">
                     <fieldset id="fieldset-register">
                         <legend className="legend-register">Register form</legend>
