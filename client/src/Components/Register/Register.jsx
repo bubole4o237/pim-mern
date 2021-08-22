@@ -85,6 +85,8 @@ const Register = (props, { history }) => {
                     let repeatPasswordValue = e.target.parentNode.parentNode.nextSibling.children[1].children[0].value;
                     if (e.target.value === repeatPasswordValue) {
                         setMessageRepeatPassword('');
+                    } else {
+                        setMessageRepeatPassword('repeatPassword mismatch the password');
                     }
                 } else {
                     let repeatPasswordValue = e.target.parentNode.parentNode.nextSibling.children[1].children[0].value;
