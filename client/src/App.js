@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 
 import Header from './Components/Header/Header';
-import Notification from './Components/Notification/Notification';
+import NotificationExpireItem from './Components/Notification/NotificationExpireItem';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
@@ -29,12 +29,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Header username={username} setIsLog={setIsLog} />
-        <Notification />
+        {username ? <NotificationExpireItem /> : null}
 
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/user/login' render={props => (<Login {...props} setIsLog={setIsLog} />)} />
-          <Route path='/user/register' component={Register} />
+          <Route path='/user/register' render={props => (<Register {...props} setIsLog={setIsLog} />)} />
           <Route path='/add/item' component={UserInput} />
           <Route path='/show/all/items' component={ItemsList} />
           <Route path='/find/item/:id' component={SelectedItem} />

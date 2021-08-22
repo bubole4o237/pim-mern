@@ -21,17 +21,17 @@ const Login = (props) => {
         }
 
         userService.login(user)
-            .then((res) => {
-                    
+            .then((res) => {       
                     setIsLog(true);
-                    
                     props.history.push('/');
-                
             })
-            // })
             .catch(err => {
-                console.log(err.message);
-                setTextMessage('Username or password incorrect!');
+                console.log(err);
+                if (err.message === 'TypeError: Failed to fetch') {
+                    setTextMessage(err.message);
+                } else {
+                    setTextMessage('Username or password incorrect!');
+                }
             });
 
     }

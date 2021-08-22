@@ -10,7 +10,10 @@ const register = (user) => {
         body: JSON.stringify(user)
     })
         .then(res => res.json())
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            throw Error(err);
+        });
 };
 
 
@@ -33,8 +36,7 @@ const login = (user) => {
         })
         .catch(err => {
             console.log(err);
-            // return 'error';
-            throw Error("ole");
+            throw Error(err);
         });
 
     return result;

@@ -78,3 +78,11 @@ img#showAllItemsListIcon {
     margin-top: 0px;
     margin-left: 206px;
 }
+
+.spanInfoMessage {
+    display: inline-block;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: 12px;
+}

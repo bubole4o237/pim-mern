@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+// import NotificationExpireItem from '../Notification/NotificationExpireItem';
+
 import './Home.css';
 
 
@@ -10,6 +12,8 @@ const Home = (props) => {
 
         return (
             <div className="mainDiv">
+                {/* <NotificationExpireItem /> */}
+
                 <h3>Welcome, {username}!</h3>
                 <div id="add-item-div">
 
@@ -31,7 +35,11 @@ const Home = (props) => {
         return (
             <div className="mainDiv notSignIn">
                 <h3>
-                    To use this application you have to login first.
+                    To use this application you have to<br />
+                    <Link to="/user/register" className="buttonLink"><i>Register </i></Link> 
+                    or 
+                    <Link to="/user/login" className="buttonLink"><i> Login </i></Link> 
+                    first.
                 </h3>
             </div>
         )

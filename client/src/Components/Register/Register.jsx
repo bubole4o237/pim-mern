@@ -6,12 +6,14 @@ import userService from '../../services/userService';
 
 
 
-const Register = ({ history }) => {
+const Register = (props, { history }) => {
 
     const [messageUsername, setMessageUsername] = useState('');
     const [messagePassword, setMessagePassword] = useState('');
     const [messageRepeatPassword, setMessageRepeatPassword] = useState('');
     const [textMessage, setTextMessage] = useState('');
+
+    const setIsLog = props.setIsLog;
 
     const onRegisterFormSubmitHandler = (e) => {
         e.preventDefault();
@@ -32,11 +34,26 @@ const Register = ({ history }) => {
                 .then((res) => {
                     console.log(res);
 
-                    history.push('/user/login');
+                    userService.login(user)
+                        .then((res) => {
+                            setIsLog(true);
+                            props.history.push('/');
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            // if (err.message === 'TypeError: Failed to fetch') {
+                                setTextMessage(err.message);
+                            // } else {
+                            //     setTextMessage('Username or password incorrect!');
+                            // }
+                        });
+
+                    // history.push('/user/login');
                 })
                 .catch(err => {
                     console.log(err);
-                    history.push('/user/register');
+                    setTextMessage(err.message);
+                    // history.push('/user/register');
                 });
 
         } else {
@@ -65,6 +82,10 @@ const Register = ({ history }) => {
             if (e.target.name === 'password') {
                 if (e.target.value.length < 5) {
                     setMessagePassword('password must be at least 5 characters long');
+                    let repeatPasswordValue = e.target.parentNode.parentNode.nextSibling.children[1].children[0].value;
+                    if (e.target.value === repeatPasswordValue) {
+                        setMessageRepeatPassword('');
+                    }
                 } else {
                     let repeatPasswordValue = e.target.parentNode.parentNode.nextSibling.children[1].children[0].value;
                     if ((e.target.value !== repeatPasswordValue) && ((repeatPasswordValue.length > 0) || (messageRepeatPassword))) {
