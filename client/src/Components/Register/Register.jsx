@@ -22,7 +22,7 @@ const Register = (props, { history }) => {
 
         const { username, password, repeatPassword } = e.target;
 
-        if ((username.value.length > 0) && (password.value.length > 5) && (password.value === repeatPassword.value)) {
+        if ((username.value.length > 0) && (password.value.length >= 5) && (password.value === repeatPassword.value)) {
 
             const user = {
                 username: username.value,
