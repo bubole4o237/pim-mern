@@ -12,6 +12,7 @@ const Notification = (props) => {
 
     const [items, setItems] = useState([]);
     const [numberOfItemsInWarning, setNumberOfItemsInWarning] = useState(0);
+    const [flag, setFlag] = useState(false);
     // const [textMessage, setTextMessage] = useState('');
 
     const ownerId = localStorage.getItem('userId');
