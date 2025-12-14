@@ -7,7 +7,7 @@ router.post('/register', (req, res, next) => {
     
     if (password.toString() !== repeatPassword.toString()) {
         // return res.render('user/register', { error: { message: 'Password should match!' } });
-        throw { message: 'password mismatch', status: 404 }
+        return next({ message: 'password mismatch', status: 400 });
     }
     // TO DO CHECK for repeat-password
 

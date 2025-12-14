@@ -2,17 +2,24 @@
 
 const register = (user) => {
 
-    return fetch('http://localhost:5000/api/user/register', {
+    return fetch('http://localhost:5001/api/user/register', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)
     })
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(err => {
+                    throw new Error(err.error || 'Registration failed');
+                });
+            }
+            return res.json();
+        })
         .catch(err => {
             console.log(err);
-            throw Error(err);
+            throw err;
         });
 };
 
@@ -21,22 +28,30 @@ const register = (user) => {
 
 const login = (user) => {
 
-    let result = fetch('http://localhost:5000/api/user/login', {
+    let result = fetch('http://localhost:5001/api/user/login', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)
     })
-        .then((res) => res.json())
+        .then((res) => {
+            if (!res.ok) {
+                return res.json().then(err => {
+                    throw new Error(err.error || 'Login failed');
+                });
+            }
+            return res.json();
+        })
         .then((result) => {
             console.log(result);
             localStorage.setItem('username', result.username);
             localStorage.setItem('userId', result._id);
+            return result;
         })
         .catch(err => {
             console.log(err);
-            throw Error(err);
+            throw err;
         });
 
     return result;
@@ -62,7 +77,7 @@ const logout = async () => {
 
 
 
-module.exports = {
+export {
     register,
     login,
     logout

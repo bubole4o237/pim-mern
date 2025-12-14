@@ -3,16 +3,24 @@ const config = require('./config');
 
 mongoose.connect(config.DB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
+    useUnifiedTopology: true
+}).catch(err => {
+    console.error('MongoDB connection error:', err);
+    process.exit(1);
 });
 
 const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', (err) => {
+    console.error('Database connection error:', err);
+});
+
 db.once('open', function () {
-    console.log('DB is connected!');
+    console.log('✅ Database connected successfully!');
+});
+
+db.on('disconnected', () => {
+    console.log('❌ Database disconnected');
 });
 
 module.exports = db;

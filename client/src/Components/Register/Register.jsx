@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Notification from '../Notification/Notification';
 import './Register.css';
-import userService from '../../services/userService';
+import * as userService from '../../services/userService';
 
 
 

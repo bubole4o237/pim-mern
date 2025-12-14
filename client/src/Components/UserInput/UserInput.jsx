@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Notification from '../Notification/Notification';
 import getUserInput from '../../Logic/getUserInput.js'
-import itemService from '../../services/itemService';
+import * as itemService from '../../services/itemService';
 
 import showAllItemsListIcon from '../../img/info-button-icon-black.png';
 

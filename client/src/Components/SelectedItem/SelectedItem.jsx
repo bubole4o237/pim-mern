@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Notification from '../Notification/Notification';
 
 import getUserInput from '../../Logic/getUserInput.js'
-import itemService from '../../services/itemService'
+import * as itemService from '../../services/itemService'
 
 import './SelectedItem.css';
 

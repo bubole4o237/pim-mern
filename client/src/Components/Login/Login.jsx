@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Notification from '../Notification/Notification';
-import userService from '../../services/userService';
+import * as userService from '../../services/userService';
 // import './Login.css';
 
 const Login = (props) => {

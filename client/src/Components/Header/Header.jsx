@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
-import userService from '../../services/userService';
+import * as userService from '../../services/userService';
 
 const Header = (props) => {
 

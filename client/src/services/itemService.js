@@ -13,7 +13,7 @@ const create = (category, name, purchasedOn, expireOn, openedOn, duration, type,
         ownerId
     }
 
-    return fetch('http://localhost:5000/api/item/create/item', {
+    return fetch('http://localhost:5001/api/item/create/item', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ const create = (category, name, purchasedOn, expireOn, openedOn, duration, type,
 
 const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, type) => {
     
-    let itemIdUrl = `http://localhost:5000/api/item/update/items/${id}`;
+    let itemIdUrl = `http://localhost:5001/api/item/update/items/${id}`;
 
     let item = {
         id,
@@ -54,7 +54,7 @@ const update = (id, category, name, purchasedOn, expireOn, openedOn, duration, t
 
 /////////// getAll Items or all Items by category /////////////
 
-const url = 'http://localhost:5000/api/item/get/items';
+const url = 'http://localhost:5001/api/item/get/items';
 
 const getAll = (ownerId, category = '') => {
     
@@ -90,7 +90,7 @@ const getOne = (id) => {
 const deleteItem = (id) => {
     console.log("Hi from function deleteITEM");
 
-    let itemIdUrl = `http://localhost:5000/api/item/delete/item/${id}`;
+    let itemIdUrl = `http://localhost:5001/api/item/delete/item/${id}`;
 
 
     return fetch(itemIdUrl, {
@@ -101,7 +101,7 @@ const deleteItem = (id) => {
 }
 
 
-module.exports = {
+export {
     create,
     update,
     getAll,

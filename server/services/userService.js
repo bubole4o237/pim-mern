@@ -7,7 +7,20 @@ const register = (username, password) => {
 
     console.log('REG ???');
 
-    return user.save();
+    return user.save()
+        .catch(err => {
+            if (err.code === 11000) {
+                // Duplicate key error (username already exists)
+                throw { message: 'Username already exists', status: 409 };
+            }
+            if (err.name === 'ValidationError') {
+                // Validation error
+                const messages = Object.values(err.errors).map(e => e.message).join(', ');
+                throw { message: messages, status: 400 };
+            }
+            // Re-throw other errors
+            throw err;
+        });
 };
 
 
